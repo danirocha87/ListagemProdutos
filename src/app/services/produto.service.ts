@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IProduto } from '../interfaces/produto';
+import { CadastrarProdutoComponent } from './../pages/cadastrar-produto/cadastrar-produto.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,11 @@ export class ProdutoService {
   
   buscarTodos()
   {
-    this.http.get(this.api)
+    return this.http.get<IProduto[]>(this.api)
+  }
+
+  CadastrarProdutoComponent(produto:IProduto)
+  {
+    return this.http.post<IProduto>(this.api, produto);
   }
 }

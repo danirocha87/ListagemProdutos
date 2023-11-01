@@ -3,5 +3,7 @@ export interface IProduto {
   Nome: string;
   CodigoDeBarras:number;
   Preco:number;
-  // preciso ver como faz Ações
+
+  //verificar o codigo de barras no back ele é como string se não vai da problema
+  
 }

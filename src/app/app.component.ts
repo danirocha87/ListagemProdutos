@@ -1,24 +1,35 @@
 import { Component } from '@angular/core';
-import { ProdutoComponent } from './page/produto/produto.component';
+import { ProdutoComponent } from './pages/produto/produto.component';
+import { IProduto } from './interfaces/produto';
+import { ProdutoService } from './services/produto.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit 
+export class ProdutoComponent
 {
+  produto: IProduto[] =[];
+  
+  constructor (private ProdutoService: ProdutoService){}
 
-ProdutoComponent:produto[];
-
-constructor(
-  public ProdutoComponent: ProdutoComponent
-){}
-
-ngOnInit() void{
-
+ngOnInit(){
+  this.ProdutoService.buscarTodos().subscribe
+  (
+    produto =>
+    {
+      this.produto = produto;
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
+remover(id: number) {
+  this.produto = this.produto.filter((produto) => produto.id !== id);
+}
 }
 
-  title = 'ListagemProdutos';
+
