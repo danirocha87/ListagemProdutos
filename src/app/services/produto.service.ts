@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class ProdutoService {
 
-  constructor() { }
+  api= "http://localhost:3000/produto"
+
+  constructor(private http:HttpClient) { }
+  
+  buscarTodos()
+  {
+    this.http.get(this.api)
+  }
 }

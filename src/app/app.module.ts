@@ -5,9 +5,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { ProdutoComponent } from './page/produto/produto.component';
+
 import { CadastrarProdutoComponent } from './pages/cadastrar-produto/cadastrar-produto.component';
 import { ListarProdutosComponent } from './pages/listar-produtos/listar-produtos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProdutoComponent } from './pages/produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ListarProdutosComponent } from './pages/listar-produtos/listar-produtos
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
