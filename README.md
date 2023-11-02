@@ -12,7 +12,7 @@ Acessos
   https://github.com/danirocha87/ListagemProdutos.git
 
 * Link do YouTube com o video de apresentação do projeto
-  https://www.youtube.com/channel/UCgFIadx6QPo1YkRWbCkBDKQ
+  https://youtu.be/EeylrIVwlTk?si=FcTE1ZToVa1spEy1
 
 ---------------------------------------------------------------------
 Back-End
