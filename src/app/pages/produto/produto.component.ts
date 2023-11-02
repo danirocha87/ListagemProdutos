@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProdutoService } from './../../services/produto.service';
 import { IProduto } from 'src/app/interfaces/produto';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produto',
@@ -39,7 +40,11 @@ export class ProdutoComponent {
     });              
   }
 
-  //TODO:
-  //CRIAR O EDITAR:
+  public router = inject(Router);
+
+  public editarProduto(produto: IProduto)
+  {
+   this.router.navigate([`produto/editar/${produto.id}`]);
+  }
 
 }

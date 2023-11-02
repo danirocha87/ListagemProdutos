@@ -13,10 +13,10 @@ export class CadastrarProdutoComponent {
 
   constructor(private ProdutoService: ProdutoService){}
 
-    produtoForm = new FormGroup({
-      nome: new FormControl('',Validators.required),
+      produtoForm = new FormGroup({
+      nome: new FormControl('',[Validators.required,Validators.maxLength(100)]),
       codigoBarras: new FormControl('',Validators.required),
-      preco: new FormControl(0,Validators.required),
+      preco: new FormControl(0,Validators.required,),
     });
 
     enviar()
@@ -32,8 +32,7 @@ export class CadastrarProdutoComponent {
             console.log(result)
             Swal.fire
             (
-            'PARABÉNS CHAMPS!!',
-            'Usuário cadastrado com sucesso!',
+            'Produto cadastrado',
             'success'
             );
            },

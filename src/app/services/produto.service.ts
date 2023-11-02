@@ -4,6 +4,7 @@ import { IProduto } from '../interfaces/produto';
 import { CadastrarProdutoComponent } from './../pages/cadastrar-produto/cadastrar-produto.component';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { AtualizarProdutoComponent } from './../pages/atualizar-produto/atualizar-produto.component';
 
 
 @Injectable({
@@ -22,9 +23,22 @@ export class ProdutoService {
         catchError(this.handleError))
   }
 
+  buscarPorId(id: number): Observable<IProduto> {
+    return this.http.get<IProduto>(`${this.api}/${id}`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError))
+  }
+
   cadastrarProduto(produto:IProduto)
   {
     return this.http.post<IProduto>(this.api, produto);
+  }
+
+
+  atualizarProduto(produto:IProduto)
+  {
+    return this.http.put<IProduto>(this.api,produto);
   }
 
   deletarProduto(id: number){    
@@ -32,7 +46,7 @@ export class ProdutoService {
     return this.http.delete(url);
   }
 
-    // Manipulação de erros
+   
     handleError(error: HttpErrorResponse) {
       let errorMessage = '';
       if (error.error instanceof ErrorEvent) {

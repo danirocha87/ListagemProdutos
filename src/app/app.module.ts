@@ -10,6 +10,7 @@ import { CadastrarProdutoComponent } from './pages/cadastrar-produto/cadastrar-p
 import { HttpClientModule } from '@angular/common/http';
 import { ProdutoComponent } from './pages/produto/produto.component';
 import { CommonModule } from '@angular/common';
+import { AtualizarProdutoComponent } from './pages/atualizar-produto/atualizar-produto.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     CadastrarProdutoComponent,
     ProdutoComponent,
+    AtualizarProdutoComponent,
   ],
   imports: [
     BrowserModule,
