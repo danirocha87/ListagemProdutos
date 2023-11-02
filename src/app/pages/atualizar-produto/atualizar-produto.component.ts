@@ -20,8 +20,8 @@ export class AtualizarProdutoComponent {
 
       produtoForm = new FormGroup({
       id: new FormControl(0,Validators.required),
-      nome: new FormControl('',[Validators.required,Validators.maxLength(100)]),
-      codigoBarras: new FormControl(0,Validators.required),
+      nome: new FormControl('',[Validators.required,Validators.maxLength(255)]),
+      codigoBarras: new FormControl(0,[Validators.required,Validators.maxLength(255)]),
       preco: new FormControl(0,Validators.required),
     });
 
@@ -56,7 +56,7 @@ export class AtualizarProdutoComponent {
       (error)=>
       {
         const {message} = error;
-        Swal.fire('Erro',message,'error');
+        Swal.fire("Atenção!Todos os campos precisam estar preenchidos corretamente.");
       }
     )
 

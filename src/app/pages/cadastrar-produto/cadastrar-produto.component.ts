@@ -14,9 +14,9 @@ export class CadastrarProdutoComponent {
   constructor(private ProdutoService: ProdutoService){}
 
       produtoForm = new FormGroup({
-      nome: new FormControl('',[Validators.required,Validators.maxLength(100)]),
-      codigoBarras: new FormControl('',Validators.required),
-      preco: new FormControl(0,Validators.required,),
+      nome: new FormControl('',[Validators.required,Validators.maxLength(255)]),
+      codigoBarras: new FormControl('',[Validators.required,Validators.maxLength(255)]),
+      preco: new FormControl(0,Validators.required),
     });
 
     enviar()
@@ -39,7 +39,7 @@ export class CadastrarProdutoComponent {
         (error) =>
          {
           const { message } = error;
-          Swal.fire('Erro', message,'error');
+          Swal.fire("Atenção!Todos os campos precisam estar preenchidos corretamente.");
         }
        )
         
