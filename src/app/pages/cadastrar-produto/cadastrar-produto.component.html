@@ -3,26 +3,30 @@
 <form [formGroup]="produtoForm" (submit)="enviar()">
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col-md12">
         <div class="mb-3">
-          <label for="nomeProduto" class="form-label">Nome do produto</label>
-          <input type="text" class="form-control" id="nomenomeProduto" formControlName="nomeProduto">
+          <label for="nome" class="form-label">Nome do produto</label>
+          <input type="text" class="form-control" id="nome" formControlName="nome">
         </div>
       </div>
-      <div class="col">
+      <div class="col-md12">
         <div class="mb-3">
-          <label for="codigoDeBarras" class="form-label">Código de barras</label>
-          <input type="number" class="form-control" id="codigoDeBarras" formControlName="codigoDeBarras">
+          <label for="codigoBarras" class="form-label">Código de barras</label>
+          <input type="text" class="form-control" id="codigoBarras" formControlName="codigoBarras">
         </div>
-        <div class="col">
+        <div class="col-md12">
           <div class="mb-3">
             <label for="preco" class="form-label">Preço</label>
             <input type="number" class="form-control" id="preco" formControlName="preco">
           </div>
       </div>
     </div>
-    <a class="btn btn-secondary me-1" routerLink="/produto">Voltar</a>
-    <button class="btn btn-primary" type="submit" [disabled]="produtoForm.invalid">Cadastrar</button>
+    <div class="col">
+      <a class="btn btn-secondary" routerLink="/">Voltar</a>
+      <button class="btn btn-primary" type="submit" [disabled]="produtoForm.invalid">Cadastrar</button>
+    </div>
+ 
+    </div>
   </div>
 </form>
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProdutoService } from './../../services/produto.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IProduto } from 'src/app/interfaces/produto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -10,24 +11,38 @@ import { IProduto } from 'src/app/interfaces/produto';
 })
 export class CadastrarProdutoComponent {
 
-  constructor(private ProdutoService: ProdutoService){
+  constructor(private ProdutoService: ProdutoService){}
 
     produtoForm = new FormGroup({
-      nome: new FormControl(''),
-      CodigoDeBarras: new FormControl(''),
-      preco: new FormControl(''),
+      nome: new FormControl('',Validators.required),
+      codigoBarras: new FormControl('',Validators.required),
+      preco: new FormControl(0,Validators.required),
     });
-    Enviar() {
-      const produto: Partial<IProduto> 
-      = this.produtoForm.value as IProduto;
-       produto.ativo= true; 
+
+    enviar()
+     {
+      const produto: IProduto = this.produtoForm.value as unknown as IProduto;
   
        console.log(produto)
        
-       this.ProdutoService.cadastrarProduto(Produto)
-       .subscribe(result =>{
-        console.log(result)
-       }
-        )
+       this.ProdutoService.cadastrarProduto(produto).subscribe
+       (
+        (result) =>
+          {
+            console.log(result)
+            Swal.fire
+            (
+            'PARABÉNS CHAMPS!!',
+            'Usuário cadastrado com sucesso!',
+            'success'
+            );
+           },
+        (error) =>
+         {
+          const { message } = error;
+          Swal.fire('Erro', message,'error');
+        }
+       )
+        
     } 
 }

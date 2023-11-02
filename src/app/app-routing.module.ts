@@ -7,7 +7,7 @@ import { CadastrarProdutoComponent } from './pages/cadastrar-produto/cadastrar-p
 const routes: Routes = [
   
   {
-    path:'produto',component:ProdutoComponent
+    path:'',component:ProdutoComponent,
   },
   
   {
